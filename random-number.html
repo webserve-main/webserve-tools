@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Number Generator - WebServe Tools</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tool-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 120px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+            button:hover {
+                background: #0ea5e9;
+            }
+
+        .result {
+            margin-top: 20px;
+            font-size: 30px;
+            color: #38bdf8;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        WebServe Tools
+    </nav>
+
+    <div class="container">
+        <h1>Random Number Generator</h1>
+        <p>Generate a random number between min and max.</p>
+
+        <div class="tool-box">
+            <input type="number" id="min" placeholder="Min">
+            <input type="number" id="max" placeholder="Max">
+            <br>
+            <button onclick="generateNumber()">Generate</button>
+
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateNumber() {
+            let min = parseInt(document.getElementById("min").value);
+            let max = parseInt(document.getElementById("max").value);
+
+            if (isNaN(min) || isNaN(max)) {
+                document.getElementById("result").innerText = "Enter numbers";
+                return;
+            }
+
+            let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+
+            document.getElementById("result").innerText = randomNumber;
+        }
+    </script>
+
+</body>
+</html>

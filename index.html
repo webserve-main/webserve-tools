@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebServe Tools</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #0f172a, #1e293b);
+            color: white;
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 8%;
+            background: rgba(255,255,255,0.05);
+        }
+
+            nav h1 {
+                color: #38bdf8;
+            }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+            .hero h2 {
+                font-size: 38px;
+            }
+
+            .hero p {
+                color: #cbd5f5;
+                margin: 10px 0;
+            }
+
+        /* Search */
+        .search-box {
+            margin-top: 20px;
+        }
+
+            .search-box input {
+                width: 350px;
+                max-width: 90%;
+                padding: 12px;
+                border-radius: 8px;
+                border: none;
+            }
+
+        /* Container */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+            .tool-card i {
+                font-size: 30px;
+                margin-bottom: 10px;
+                color: #38bdf8;
+            }
+
+            .tool-card:hover {
+                transform: translateY(-8px);
+                background: rgba(56,189,248,0.2);
+            }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* Mobile */
+        @media(max-width:600px) {
+            .hero h2 {
+                font-size: 26px;
+            }
+
+            nav {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <h1>WebServe Tools</h1>
+    </nav>
+
+    <section class="hero">
+        <h2>All-in-One Web Tools</h2>
+        <p>Fast, Free & Easy Tools</p>
+
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Search tools..." onkeyup="searchTools()">
+        </div>
+    </section>
+
+    <div class="container">
+        <h3 style="margin-top:40px;">All Tools</h3>
+
+        <div class="tools-grid" id="toolsGrid">
+
+            <a href="password.html" class="tool-card">
+                <i class="fa-solid fa-key"></i>
+                <p>Password Generator</p>
+            </a>
+
+            <a href="qr.html" class="tool-card">
+                <i class="fa-solid fa-qrcode"></i>
+                <p>QR Code Generator</p>
+            </a>
+
+            <a href="percentage.html" class="tool-card">
+                <i class="fa-solid fa-percent"></i>
+                <p>Percentage Calculator</p>
+            </a>
+
+            <a href="unit-converter.html" class="tool-card">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <p>Unit Converter</p>
+            </a>
+
+            <a href="compress.html" class="tool-card">
+                <i class="fa-solid fa-compress"></i>
+                <p>Image Compressor</p>
+            </a>
+
+            <a href="word-counter.html" class="tool-card">
+                <i class="fa-solid fa-file-lines"></i>
+                <p>Word Counter</p>
+            </a>
+
+            <a href="random-number.html" class="tool-card">
+                <i class="fa-solid fa-dice"></i>
+                <p>Random Number Generator</p>
+            </a>
+
+            <a href="age-calculator.html" class="tool-card">
+                <i class="fa-solid fa-cake-candles"></i>
+                <p>Age Calculator</p>
+            </a>
+
+        </div>
+    </div>
+    <script>
+        function searchTools() {
+            let input = document.getElementById("search").value.toLowerCase();
+            let cards = document.querySelectorAll(".tool-card");
+
+            cards.forEach(card => {
+                let text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>

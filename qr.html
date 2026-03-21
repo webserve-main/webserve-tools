@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator - WebServe Tools</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .tool-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        input {
+            padding: 12px;
+            width: 80%;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+            button:hover {
+                background: #0ea5e9;
+            }
+
+        #qrImage {
+            margin-top: 20px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        WebServe Tools
+    </nav>
+
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <p>Enter text or URL to generate QR Code.</p>
+
+        <div class="tool-box">
+            <input type="text" id="qrText" placeholder="Enter text or URL">
+            <br>
+            <button onclick="generateQR()">Generate QR Code</button>
+            <div>
+                <img id="qrImage" src="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateQR() {
+            let text = document.getElementById("qrText").value;
+            let qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + encodeURIComponent(text);
+            document.getElementById("qrImage").src = qrUrl;
+        }
+    </script>
+
+</body>
+</html>

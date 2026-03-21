@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - WebServe Tools</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tool-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+            width: 120px;
+            border-radius: 5px;
+            border: none;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+            button:hover {
+                background: #0ea5e9;
+            }
+
+        .result {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #38bdf8;
+        }
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        WebServe Tools
+    </nav>
+
+    <div class="container">
+        <h1>Percentage Calculator</h1>
+
+        <div class="tool-box">
+            <h3>X% of Y</h3>
+            <input type="number" id="percent1" placeholder="%">
+            <input type="number" id="number1" placeholder="Number">
+            <br>
+            <button onclick="calculatePercent()">Calculate</button>
+
+            <div class="result" id="result1"></div>
+
+            <hr>
+
+            <h3>Increase by %</h3>
+            <input type="number" id="percent2" placeholder="%">
+            <input type="number" id="number2" placeholder="Number">
+            <br>
+            <button onclick="increasePercent()">Calculate</button>
+
+            <div class="result" id="result2"></div>
+
+            <hr>
+
+            <h3>Decrease by %</h3>
+            <input type="number" id="percent3" placeholder="%">
+            <input type="number" id="number3" placeholder="Number">
+            <br>
+            <button onclick="decreasePercent()">Calculate</button>
+
+            <div class="result" id="result3"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePercent() {
+            let percent = document.getElementById("percent1").value;
+            let number = document.getElementById("number1").value;
+
+            let result = (percent / 100) * number;
+            document.getElementById("result1").innerText = result;
+        }
+
+        function increasePercent() {
+            let percent = document.getElementById("percent2").value;
+            let number = document.getElementById("number2").value;
+
+            let result = number * (1 + percent / 100);
+            document.getElementById("result2").innerText = result;
+        }
+
+        function decreasePercent() {
+            let percent = document.getElementById("percent3").value;
+            let number = document.getElementById("number3").value;
+
+            let result = number * (1 - percent / 100);
+            document.getElementById("result3").innerText = result;
+        }
+    </script>
+
+</body>
+</html>

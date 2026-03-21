@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - WebServe Tools</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #0f172a;
+            color: white;
+        }
+
+        nav {
+            background: #1e293b;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .tool-box {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .result {
+            margin-top: 15px;
+            font-size: 20px;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>WebServe Tools</nav>
+
+    <div class="container">
+        <h1>Unit Converter</h1>
+
+        <div class="tool-box">
+            <input type="number" id="value" placeholder="Value">
+
+            <select id="conversion">
+                <option value="cm_m">cm to m</option>
+                <option value="m_km">m to km</option>
+                <option value="kg_g">kg to g</option>
+                <option value="min_h">minutes to hours</option>
+            </select>
+
+            <br>
+            <button onclick="convert()">Convert</button>
+
+            <div class="result" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function convert() {
+            let value = document.getElementById("value").value;
+            let type = document.getElementById("conversion").value;
+            let result;
+
+            if (type == "cm_m") {
+                result = value / 100;
+            }
+            else if (type == "m_km") {
+                result = value / 1000;
+            }
+            else if (type == "kg_g") {
+                result = value * 1000;
+            }
+            else if (type == "min_h") {
+                result = value / 60;
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+</html>
