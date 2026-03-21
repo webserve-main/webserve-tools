@@ -1,115 +1,97 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Age Calculator - WebServe Tools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Counter - WebServe Tools</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+}
 
-        nav {
-            background: #1e293b;
-            padding: 15px;
-            text-align: center;
-            font-size: 20px;
-        }
+nav {
+    background: #1e293b;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+}
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            text-align: center;
-        }
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
 
-        .tool-box {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
+.tool-box {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
 
-        input {
-            padding: 10px;
-            margin: 5px;
-            width: 80px;
-            border-radius: 5px;
-            border: none;
-            text-align: center;
-        }
+textarea {
+    width: 100%;
+    height: 180px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
 
-        button {
-            padding: 12px 20px;
-            background: #38bdf8;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-            button:hover {
-                background: #0ea5e9;
-            }
-
-        .result {
-            margin-top: 15px;
-            font-size: 20px;
-            color: #38bdf8;
-        }
-    </style>
+.stats {
+    margin-top: 15px;
+    font-size: 18px;
+    color: #38bdf8;
+}
+</style>
 
 </head>
 <body>
 
-    <nav>
-        WebServe Tools
-    </nav>
+<nav>
+    WebServe Tools
+</nav>
 
-    <div class="container">
-        <h1>Age Calculator</h1>
-        <p>Enter your birth date</p>
+<div class="container">
+    <h1>Word Counter</h1>
+    <p>Count words, characters and sentences.</p>
 
-        <div class="tool-box">
-            <input type="number" id="day" placeholder="Day">
-            <input type="number" id="month" placeholder="Month">
-            <input type="number" id="year" placeholder="Year">
-            <br>
-            <button onclick="calculateAge()">Calculate Age</button>
+    <div class="tool-box">
+        <textarea id="text" placeholder="Type or paste your text here..." oninput="countText()"></textarea>
 
-            <div class="result" id="result"></div>
+        <div class="stats">
+            Words: <span id="words">0</span><br>
+            Characters: <span id="chars">0</span><br>
+            Sentences: <span id="sentences">0</span>
         </div>
     </div>
+</div>
 
-    <script>
-        function calculateAge() {
-            let day = document.getElementById("day").value;
-            let month = document.getElementById("month").value;
-            let year = document.getElementById("year").value;
+<script>
+function countText() {
+    let text = document.getElementById("text").value;
 
-            if (day == "" || month == "" || year == "") {
-                document.getElementById("result").innerText = "Please enter full date";
-                return;
-            }
+    // Words
+    let words = text.trim().split(/\s+/).filter(word => word.length > 0);
+    let wordCount = words.length;
 
-            let birth = new Date(year, month - 1, day);
-            let today = new Date();
+    // Characters
+    let charCount = text.length;
 
-            let age = today.getFullYear() - birth.getFullYear();
-            let m = today.getMonth() - birth.getMonth();
+    // Sentences
+    let sentenceCount = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
 
-            if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-                age--;
-            }
-
-            document.getElementById("result").innerText = "Your age is " + age + " years";
-        }
-    </script>
+    document.getElementById("words").innerText = wordCount;
+    document.getElementById("chars").innerText = charCount;
+    document.getElementById("sentences").innerText = sentenceCount;
+}
+</script>
 
 </body>
 </html>
