@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,6 @@
             color: white;
         }
 
-        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -28,46 +27,48 @@
             background: rgba(255,255,255,0.05);
         }
 
-            nav h1 {
-                color: #38bdf8;
-            }
+        nav h1 {
+            color: #38bdf8;
+        }
 
-        /* Hero */
+        nav a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+        }
+
         .hero {
             text-align: center;
             padding: 60px 20px;
         }
 
-            .hero h2 {
-                font-size: 38px;
-            }
+        .hero h2 {
+            font-size: 38px;
+        }
 
-            .hero p {
-                color: #cbd5f5;
-                margin: 10px 0;
-            }
+        .hero p {
+            color: #cbd5f5;
+            margin: 10px 0;
+        }
 
-        /* Search */
         .search-box {
             margin-top: 20px;
         }
 
-            .search-box input {
-                width: 350px;
-                max-width: 90%;
-                padding: 12px;
-                border-radius: 8px;
-                border: none;
-            }
+        .search-box input {
+            width: 350px;
+            max-width: 90%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+        }
 
-        /* Container */
         .container {
             width: 85%;
             max-width: 1200px;
             margin: auto;
         }
 
-        /* Tools Grid */
         .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -85,18 +86,28 @@
             transition: 0.3s;
         }
 
-            .tool-card i {
-                font-size: 30px;
-                margin-bottom: 10px;
-                color: #38bdf8;
-            }
+        .tool-card i {
+            font-size: 30px;
+            margin-bottom: 10px;
+            color: #38bdf8;
+        }
 
-            .tool-card:hover {
-                transform: translateY(-8px);
-                background: rgba(56,189,248,0.2);
-            }
+        .tool-card:hover {
+            transform: translateY(-8px);
+            background: rgba(56,189,248,0.2);
+        }
 
-        /* Footer */
+        .blog {
+            margin-top: 60px;
+        }
+
+        .blog article {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+
         footer {
             margin-top: 60px;
             padding: 25px;
@@ -104,7 +115,12 @@
             background: rgba(255,255,255,0.05);
         }
 
-        /* Mobile */
+        footer a {
+            color: #38bdf8;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
         @media(max-width:600px) {
             .hero h2 {
                 font-size: 26px;
@@ -122,11 +138,17 @@
 
     <nav>
         <h1>WebServe Tools</h1>
+        <div>
+            <a href="index.html">Home</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
 
     <section class="hero">
         <h2>All-in-One Web Tools</h2>
-        <p>Fast, Free & Easy Tools</p>
+        <p>Free Online Tools, Product Reviews, Guides and Useful Resources</p>
 
         <div class="search-box">
             <input type="text" id="search" placeholder="Search tools..." onkeyup="searchTools()">
@@ -179,7 +201,37 @@
             </a>
 
         </div>
+
+        <div class="blog">
+            <h3>Latest Articles & Guides</h3>
+
+            <article>
+                <h4>Best Tools You Can Buy Online</h4>
+                <p>We review useful tools and gadgets and recommend the best products available online.</p>
+            </article>
+
+            <article>
+                <h4>Top 10 Useful Gadgets</h4>
+                <p>Discover cheap and useful gadgets that can improve your daily life.</p>
+            </article>
+
+            <article>
+                <h4>Best DIY Tools for Home</h4>
+                <p>List of the best DIY and home tools you should have.</p>
+            </article>
+
+        </div>
     </div>
+
+    <footer>
+        <p>© 2026 WebServe Tools</p>
+        <p>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms</a>
+            <a href="affiliate.html">Affiliate Disclaimer</a>
+        </p>
+    </footer>
+
     <script>
         function searchTools() {
             let input = document.getElementById("search").value.toLowerCase();
